@@ -17,9 +17,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: process.env.VITE_API_URL || 'http://localhost:8000',
+        target: process.env.VITE_API_URL || 'https://backend-production-b024.up.railway.app',
         changeOrigin: true,
       },
     },
   },
+  define: {
+    'import.meta.env.VITE_API_URL': JSON.stringify('https://backend-production-b024.up.railway.app')
+  }
 });
